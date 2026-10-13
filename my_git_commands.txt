@@ -1,0 +1,253 @@
+    1  [200~mkdir git-playground
+    2  cd git-playground
+    3  git init -b main
+    4  git config user.name "Your Name"
+    5  git config user.email "YOUR_EMAIL"
+    6  echo "My Git practice notes" > notes.txt
+    7  echo "Hello world" > greeting.txt
+    8  echo "color=blue" > settings.txt
+    9  git status
+   10  git add notes.txt greeting.txt settings.txt
+   11  git diff --staged
+   12  git commit -m "Create practice files"
+   13  git remote add origin https://github.com/YOUR_USERNAME/git-playground.git
+   14  git remote -v
+   15  mkdir git-playground
+   16  cd git-playground
+   17  git init -b main
+   18  git config user.name "Your Name"
+   19  git config user.email "YOUR_EMAIL"
+   20  echo "My Git practice notes" > notes.txt
+   21  echo "Hello world" > greeting.txt
+   22  echo "color=blue" > settings.txt
+   23  git status
+   24  git add notes.txt greeting.txt settings.txt
+   25  git diff --staged
+   26  git commit -m "Create practice files"
+   27  git remote add origin https://github.com/Alter0207/git-playground.git
+   28  git remote -v
+   29  git push -u origin main
+   30  q
+   31  clear
+   32  cd ~
+   33  mkdir git-playground
+   34  cd git-playground
+   35  git init -b main
+   36  git config user.name "你的名字"
+   37  git config user.email "你的邮箱"
+   38  echo "My Git practice notes" > notes.txt
+   39  echo "Hello world" > greeting.txt
+   40  echo "color=blue" > settings.txt
+   41  git add notes.txt greeting.txt settings.txt
+   42  git commit -m "Create practice files"
+   43  git remote add origin https://github.com/Alter0207/git-playground.git
+   44  git push -u origin main
+   45  git config --global http.proxy http://127.0.0.1:7890
+   46  git config --global https.proxy http://127.0.0.1:7890
+   47  git push -u origin main
+   48  git push -u origin main
+   49  git config --global --http.proxy
+   50  git config --global --unset https.proxy
+   51  [200~git config --global --unset http.proxy
+   52  git push -u origin main
+   53  git config --global --unset http.proxy\
+   54  cd ~/gti-playgroundgit status
+   55  cd ~/git-playground
+   56  ls
+   57  git status
+   58  git push -u origin main
+   59  git config --global --unset-all http.proxy 
+   60  git config --global --unset-all https.proxy
+   61  git push -u origin main
+   62  git config --global user.name "你的真实名字"
+   63  echo "I can inspect and save changes." >> notes.txt
+   64  git status
+   65  git diff
+   66  git add notes.txt
+   67  git diff
+   68  git diff --stages
+   69  git commit -m "Add a practice note"
+   70  git log --online -3
+   71  git push
+   72  git switch -c feature-list
+   73  echo "Practice branching" > tasks.txt
+   74  git add tasks.txt
+   75  git commit -m "Add practice tasks"
+   76  git branch
+   77  git switch main
+   78  ls
+   79  git merge --no-ff feature-list -m "Merge practice tasks"
+   80  cat tasks.txt
+   81  git log --graph --oneline --all -8
+   82  git switch -c friendly-greeting
+   83  echo "Hello friends" > greeting.txt
+   84  git add greeting.txt
+   85  git commit -m "Use a friendly greeting"
+   86  git switch main
+   87  echo "Hello team" > greeting.txt
+   88  git add greeting.txt
+   89  git commit -m "Use a team greeting"
+   90  git merge friendly-greeting
+   91  git status
+   92  cat greeting.txt
+   93  git merge --abort
+   94  cat greeting.txt
+   95  git merge friendly-greeting
+   96  echo "Hello team and friends" > greeting.txt
+   97  git add greeting.txt
+   98  git commit -m "Resolve greeting conflict"
+   99  git status
+  100  git switch -c color-update
+  101  echo "color=green" > settings.txt
+  102  git add settings.txt
+  103  git commit -m "Choose green"
+  104  git log --oneline -1
+  105  git switch main
+  106  echo "color=red" > settings.txt
+  107  git add settings.txt
+  108  git commit -m "Choose red"
+  109  git switch color-update
+  110  git rebase main
+  111  cat settings.txt
+  112  git rebase --abort
+  113  cat settings.txt
+  114  git rebase main
+  115  echo "color=purple" > settings.txt
+  116  git add settings.txt
+  117  git -c core.editor=true rebase --continue
+  118  git log --oneline -3
+  119  git switch main
+  120  git merge --ff-only color-update
+  121  cat settings.txt
+  122  git push
+  123  git switch -c pr-notes
+  124  echo "This file arrived through a pull request." > review.txt
+  125  git add review.txt
+  126  git commit -m "Add review notes"
+  127  git push -u origin pr-notes
+  128  git switch main
+  129  git fetch origin
+  130  ls
+  131  git log --oneline main..origin/main
+  132  git diff main origin/main
+  133  git pull --ff-only
+  134  git branch -d pr-notes
+  135  cd ..
+  136  git clone https://github.com/Alter0207/git-playground.git git-playground-peer
+  137  cd git-playground-peer
+  138  git config user.name "Your Name"
+  139  git config user.email "YOUR_EMAIL"
+  140  echo "A teammate added this note." > team.txt
+  141  git add team.txt
+  142  git commit -m "Add teammate note"
+  143  git push
+  144  cd ../git-playground
+  145  echo "My simultaneous local change." >> notes.txt
+  146  git add notes.txt
+  147  git commit -m "Add local work"
+  148  git push
+  149  git fetch origin
+  150  git log --oneline --left-right main...origin/main
+  151  git pull --ff-only
+  152  git pull --rebase
+  153  git log --oneline -4
+  154  cat team.txt
+  155  git push
+  156  cd ../git-playground-peer
+  157  git pull --ff-only
+  158  echo "Another teammate change." >> team.txt
+  159  git add team.txt
+  160  git commit -m "Extend teammate note"
+  161  git push
+  162  cd ../git-playground
+  163  echo "Another local change." >> notes.txt
+  164  git add notes.txt
+  165  git commit -m "Extend local notes"
+  166  git pull --no-rebase --no-edit
+  167  git log --graph --oneline -6
+  168  git push
+  169  echo "An unfinished idea." >> notes.txt
+  170  git diff
+  171  git stash push -m "Unfinished notes"
+  172  git status
+  173  git stash list
+  174  cat notes.txt
+  175  git switch feature-list
+  176  git switch main
+  177  git stash pop
+  178  git diff
+  179  git add notes.txt
+  180  git commit -m "Finish the stashed idea"
+  181  echo "This file was a mistake." > mistake.txt
+  182  git add mistake.txt
+  183  git commit -m "Add an unwanted file"
+  184  git push
+  185  git revert --no-edit HEAD
+  186  git log --oneline -3
+  187  ls
+  188  git push
+  189  git switch -c reset-practice
+  190  echo "Draft wording" > draft.txt
+  191  git add draft.txt
+  192  git commit -m "Temporary draft"
+  193  git reset --soft HEAD~1
+  194  git status
+  195  git diff --staged
+  196  git log --oneline -2
+  197  echo "Final wording" > draft.txt
+  198  git add draft.txt
+  199  git commit -m "Add the final draft"
+  200  git switch main
+  201  git merge --ff-only reset-practice
+  202  echo "An edit I do not want." >> notes.txt
+  203  git add notes.txt
+  204  git restore --staged notes.txt
+  205  git status
+  206  git diff
+  207  git restore notes.txt
+  208  git status
+  209  git push
+  210  git status
+  211  git log --graph --oneline --decorate --all -25
+  212  history
+  213  history > my_git_commands.txt
+  214  cd ~/cars-crud
+  215  /c/Users/guzhong/Desktop/DevOps/cars-crud
+  216  ls
+  217  cd /c/Users/guzhong/Desktop/DevOps/cars-crud
+  218  ls
+  219  cd cars-crud
+  220  ls
+  221  git init -b main
+  222  git add .
+  223  git commit -m "Initial Cars CRUD application"
+  224  git remote add origin https://github.com/Alter0207/cars-crud.git
+  225  git push -u origin main
+  226  git config --global user.name "你的真实名字"
+  227  git config --global user.email "你的GitHub邮箱@example.com"
+  228  git commit -m "Initial Cars CRUD application"
+  229  git push -u origin main
+  230  git switch -c writing-tests
+  231  python -m venv .venv
+  232  source .venv/Scripts/activate
+  233  pip install -r requirements-dev.txt
+  234  python -m playwright install chromium
+  235  python -m pytest tests/unit tests/integration tests/api -q
+  236  python -m pytest tests/e2e -q
+  237  python -m pytest tests/unit/test_workshop_unit.py -v
+  238  python -m pytest tests/unit/test_workshop_unit.py -v
+  239  python -m pytest tests/unit/test_workshop_unit.py -v
+  240  python -m pytest tests/integration/test_workshop_integration.py -v
+  241  python -m pytest tests/integration/test_workshop_integration.py -v
+  242  python -m pytest tests/api/test_workshop_api.py -v
+  243  python -m pytest tests/api/test_workshop_api.py -v
+  244  python -m pytest tests/e2e/test_workshop_e2e.py -v
+  245  python -m pytest tests/e2e/test_workshop_e2e.py -v
+  246  python -m pytest tests/unit/test_workshop_unit.py tests/integration/test_workshop_integration.py tests/api/test_workshop_api.py tests/e2e/test_workshop_e2e.py -v
+  247  git add .
+  248  git commit -m "Add unit, integration, API, and E2E tests"
+  249  git push -u origin writing-tests
+  250  git switch main
+  251  git pull --ff-only origin main
+  252  history
+  253  history > my_git_commands.txt
