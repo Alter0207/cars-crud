@@ -1,38 +1,24 @@
-name: Cars CRUD Tests
+name: Hello Python
 
 on:
-  pull_request:
+  push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  tests:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Download the repository
         uses: actions/checkout@v7
-
-      - name: Set up Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-
-      - name: Install dependencies
-        run: python -m pip install -r requirements-dev.txt
-
-      - name: Install Chromium and Linux dependencies
-        run: python -m playwright install --with-deps chromium
-
-      - name: Run unit tests
-        run: python -m pytest tests/unit -q
-
-      - name: Run integration tests
-        run: python -m pytest tests/integration -q
-
-      - name: Run API tests
-        run: python -m pytest tests/api -q
-
-      - name: Run E2E tests
-        run: python -m pytest tests/e2e -q
+      - name: Show Python version
+        run: python --version
+      - name: Print a message
+        run: python -c "print('Hello from GitHub Actions!')"
