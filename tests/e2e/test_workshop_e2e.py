@@ -30,19 +30,10 @@ def test_user_edits_car_and_change_survives_reload(page, live_server):
     page.get_by_label("Year", exact=True).fill("2023")
     page.get_by_role("button", name="Save changes").click()
 
-    page.wait_for_timeout(3000)
-    print(f"DEBUG: Current URL = {page.url}")
-    heading_locator = page.locator("h1")
-    if heading_locator.count() > 0:
-        print(f"DEBUG: Actual Heading Text = {heading_locator.first.text_content()}")
-    else:
-        print("DEBUG: No h1 found on the page!")
-    print(f"DEBUG: Page Text = {page.locator('body').inner_text()}")
-
-    expect(page).to_have_url(re.compile(r"/cars/\d+$"), timeout=15000)
+    page.wait_for_url(re.compile(r"/cars/\d+$"), timeout=15000)
 
     expect(page.get_by_role("heading", name="Honda Accord")).to_be_visible(timeout=15000)
-    page.reload()
 
-    expect(page.locator("#car-model")).to_have_text("Accord")
-    expect(page.locator("#car-year")).to_have_text("2023")
+    page.reload()
+    expect(page.locator("#car-model")).to_have_text("Accord", timeout=15000)
+    expect(page.locator("#car-year")).to_have_text("2023", timeout=15000)
