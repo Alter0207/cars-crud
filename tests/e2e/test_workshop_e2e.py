@@ -14,6 +14,7 @@ def test_user_creates_car_in_browser(page, live_server):
     expect(page).to_have_url(re.compile(r"/cars/\d+$"))
     expect(page.get_by_role("heading", name="Toyota Yaris")).to_be_visible()
 
+
 def test_user_edits_car_and_change_survives_reload(page, live_server):
     page.goto(f"{live_server}/cars/new")
     page.get_by_label("Make", exact=True).fill("Honda")
@@ -22,14 +23,20 @@ def test_user_edits_car_and_change_survives_reload(page, live_server):
     page.get_by_label("Color", exact=False).fill("Red")
     page.get_by_role("button", name="Create car").click()
 
+    expect(page).to_have_url(re.compile(r"/cars/\d+$"))
     page.get_by_role("link", name="Edit car").click()
 
     page.get_by_label("Model", exact=True).fill("Accord")
     page.get_by_label("Year", exact=True).fill("2023")
     page.get_by_role("button", name="Save changes").click()
 
-    expect(page.get_by_role("heading", name="Honda Accord")).to_be_visible(timeout=15000)
+    page.wait_for_timeout(3000)
+    print(f"DEBUG: Current URL = {page.url}")
+    print(f"DEBUG: Page Content = {page.content()}")
 
+    expect(page).to_have_url(re.compile(r"/cars/\d+$"), timeout=15000)
+
+    expect(page.get_by_role("heading", name="Honda Accord")).to_be_visible(timeout=15000)
     page.reload()
 
     expect(page.locator("#car-model")).to_have_text("Accord")
